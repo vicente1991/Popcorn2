@@ -1,0 +1,10 @@
+.scroll {
+    height: 850px;
+    overflow: auto;
+    display: flex;
+}
+
+.people-item {
+    min-width: 500px;
+    margin-right: 2px;
+}
