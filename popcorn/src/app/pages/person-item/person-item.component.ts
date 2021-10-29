@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Person } from '../../interfaces/people.interface';
+import { Person } from '../../interfaces/people-popular.interface';
 
 @Component({
   selector: 'app-person-item',

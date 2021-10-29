@@ -1,6 +1,8 @@
 <mat-card>
     <mat-card-content>
         <img [src]="getMovieImageUrl(movieInput)"/>
-        <p>{{movieInput.title}} / {{movieInput?.overview}}</p>
+        <p>{{movieInput.title}}</p>
+        <button mat-button color="primary" (click)="openMovieDetailDialog()">Más información</button>
     </mat-card-content>
 </mat-card>
+

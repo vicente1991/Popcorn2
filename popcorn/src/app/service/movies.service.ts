@@ -2,8 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { MoviesPopularResponse } from '../interfaces/movie-list.interface';
-import { PopularPeopleResponse } from '../interfaces/people.interface';
+import { Movie, MoviesPopularResponse } from '../interfaces/movie-list.interface';
+import { MovieResponse } from '../interfaces/movie.interface';
+import { PopularPeopleResponse } from '../interfaces/people-popular.interface';
 
 const movieUrl = `${environment.apiBaseUrl}`;
 
@@ -27,5 +28,8 @@ export class MovieService {
   addMovie(newTitle: string): Observable<any> {
     return this.http.post('url', {title: newTitle} );
   }
+  getOverviewMovie(movie_id: number): Observable<MovieResponse>{
+    return this.http.get<MovieResponse>(`${movieUrl}/movie/${movie_id}?api_key=${environment.apiKey}&language=${environment.defaultLang}`);
+  }
 
-}
+  }

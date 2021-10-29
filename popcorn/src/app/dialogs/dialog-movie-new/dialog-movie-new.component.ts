@@ -1,9 +1,11 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Movie } from 'src/app/interfaces/movie-list.interface';
+import { MovieResponse } from 'src/app/interfaces/movie.interface';
 import { MovieService } from 'src/app/service/movies.service';
 
 export interface DialogMovieNewData {
-  title: string;
+  movie_id: number;
 }
 
 @Component({
@@ -12,6 +14,7 @@ export interface DialogMovieNewData {
   styleUrls: ['./dialog-movie-new.component.css']
 })
 export class DialogMovieNewComponent implements OnInit {
+  movie!:MovieResponse;
   movieTitle = '';
   dialogTitle = '';
   hasErrors = false;
@@ -19,10 +22,14 @@ export class DialogMovieNewComponent implements OnInit {
   constructor(
     private movieService: MovieService, 
     public dialogRef: MatDialogRef<DialogMovieNewComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogMovieNewData) { }
+    @Inject(MAT_DIALOG_DATA) private data: DialogMovieNewData) { }
 
   ngOnInit(): void {
-    this.dialogTitle = this.data.title;
+    console.log(this.movie)
+    this.movieService.getOverviewMovie(this.data.movie_id).subscribe(movieResult => {
+      this.movie = movieResult;
+      
+    });
   }
 
   saveMovie() {
