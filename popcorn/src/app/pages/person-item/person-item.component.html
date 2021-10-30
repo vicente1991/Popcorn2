@@ -2,6 +2,9 @@
     <mat-card-content>
         <p>{{personInput.name}}</p>
         <img [src]="getPersonImageUrl(personInput)"/>
-        <button mat-button color="primary">Más información</button>
+    </mat-card-content>
+    <mat-card-content>
+      Conocido por : {{personInput.known_for_department}}<br>
+      Biografia : {{people.biography}}
     </mat-card-content>
 </mat-card>

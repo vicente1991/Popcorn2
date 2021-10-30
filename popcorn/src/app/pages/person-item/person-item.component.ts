@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { PeopleResponse } from 'src/app/interfaces/people.interface';
+import { MovieService } from 'src/app/service/movies.service';
 import { environment } from 'src/environments/environment';
 import { Person } from '../../interfaces/people-popular.interface';
 
@@ -9,9 +11,14 @@ import { Person } from '../../interfaces/people-popular.interface';
 })
 export class PersonItemComponent implements OnInit {
   @Input() personInput!:Person;
-  constructor() { }
+  people!: PeopleResponse
+  constructor(private peopleService : MovieService) { }
+  
 
   ngOnInit(): void {
+    this.peopleService.getPeople(this.personInput.id).subscribe(result =>{
+      this.people= result
+    })
   }
 
   getPersonImageUrl(person: Person){

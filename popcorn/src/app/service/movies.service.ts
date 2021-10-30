@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Movie, MoviesPopularResponse } from '../interfaces/movie-list.interface';
 import { MovieResponse } from '../interfaces/movie.interface';
 import { PopularPeopleResponse } from '../interfaces/people-popular.interface';
+import { PeopleResponse } from '../interfaces/people.interface';
 
 const movieUrl = `${environment.apiBaseUrl}`;
 
@@ -30,6 +31,10 @@ export class MovieService {
   }
   getOverviewMovie(movie_id: number): Observable<MovieResponse>{
     return this.http.get<MovieResponse>(`${movieUrl}/movie/${movie_id}?api_key=${environment.apiKey}&language=${environment.defaultLang}`);
+  }
+
+  getPeople(id: number): Observable<PeopleResponse>{
+    return this.http.get<PeopleResponse>(`${movieUrl}/person/${id}?api_key=${environment.apiKey}&language=${environment.defaultLang}`);
   }
 
   }
