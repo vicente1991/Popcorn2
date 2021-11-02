@@ -5,6 +5,8 @@
     </mat-card-content>
     <mat-card-content>
       Conocido por : {{personInput.name}}<br>
-      Biografia : {{people.biography}}
+      <button><a routerLink= "/people/{{people.id}}">
+        Detalles
+        </a></button> 
     </mat-card-content>
 </mat-card>

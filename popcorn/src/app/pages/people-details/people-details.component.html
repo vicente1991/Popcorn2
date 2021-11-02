@@ -1,0 +1,13 @@
+<mat-card>
+    <mat-card-content>
+        <p>{{people.name}}</p>
+        <img [src]="getPersonImageUrl(people)"/>
+    </mat-card-content>
+    <mat-card-content>
+      Conocido por : {{people.name}}<br>
+      Biiografia: {{people.biography}}<br>
+      Conocido por : {{people.birthday}}<br>
+      <button><a routerLink = "/people">
+        Lista de personas</a></button>
+    </mat-card-content>
+</mat-card>

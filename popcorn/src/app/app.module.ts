@@ -13,6 +13,7 @@ import { MoviesPopularListComponent } from './pages/movies-popular-list/movies-p
 import { MoviesItemComponent } from './pages/movies-item/movies-item.component';
 import { PersonItemComponent } from './pages/person-item/person-item.component';
 import { PopularPeopleComponent } from './pages/popular-people/popular-people.component';
+import { PeopleDetailsComponent } from './pages/people-details/people-details.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PopularPeopleComponent } from './pages/popular-people/popular-people.co
     MoviesItemComponent,
     PersonItemComponent,
     PopularPeopleComponent,
-    DialogMovieNewComponent
+    DialogMovieNewComponent,
+    PeopleDetailsComponent
   ],
   imports: [
     BrowserModule,

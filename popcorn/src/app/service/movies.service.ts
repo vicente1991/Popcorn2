@@ -36,5 +36,8 @@ export class MovieService {
   getPeople(id: number): Observable<PeopleResponse>{
     return this.http.get<PeopleResponse>(`${movieUrl}/person/${id}?api_key=${environment.apiKey}&language=${environment.defaultLang}`);
   }
+  getPeopleDetails(id: String): Observable<PeopleResponse>{
+    return this.http.get<PeopleResponse>(`${movieUrl}/person/${id}?api_key=${environment.apiKey}&language=${environment.defaultLang}`);
+  }
 
   }
